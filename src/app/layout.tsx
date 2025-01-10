@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono ,Press_Start_2P} from "next/font/google";
 import "./globals.css";
+import NavBar from "@/components/Global/NavBar";
+import CustomCursor from "@/components/Global/CustomCursor";
+
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  variable: "--font-press-start-2p",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} antialiased`}
       >
+        <NavBar/>
         {children}
+        {/* <CustomCursor/> */}
       </body>
     </html>
   );
